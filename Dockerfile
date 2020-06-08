@@ -17,7 +17,7 @@ RUN npm install  --silent
 COPY . .
 
 # Exposed port where the app will work
-EXPOSE 5000
+EXPOSE 80
 
 # Run 'npm start' when the container starts.
 CMD [ "node", "server.js" ]
