@@ -5,7 +5,7 @@ router.route('/').get((req, res) => {
 	User.find().then(users => res.json(users)).catch(err => res.status(400).json(`Error: ${err}`));
 });
 
-router.route('/add').put((req, res) => {
+router.route('/').put((req, res) => {
 	const username = req.body.username;
 
 	const newUser = new User({username});
@@ -23,7 +23,7 @@ router.route('/:id').delete((req, res) => {
 		.catch(err => res.status(400).json(`Error : ${err}`));
 });
 
-router.route('/update/:id').post((req, res) => {
+router.route('/:id').post((req, res) => {
 	User.findById(req.params.id)
 		.then(user => {
 			user.username = req.body.username;
