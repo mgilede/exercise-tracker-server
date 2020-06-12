@@ -7,9 +7,7 @@ router.route('/').get((req, res) => {
 
 router.route('/').put((req, res) => {
 	const username = req.body.username;
-
 	const newUser = new User({username});
-
 	newUser.save().then(() => res.json('User added!')).catch(err => res.status(400).json(`Error: ${err}`));
 });
 
@@ -27,7 +25,6 @@ router.route('/:id').post((req, res) => {
 	User.findById(req.params.id)
 		.then(user => {
 			user.username = req.body.username;
-
 			user.save().then(() => res.json('User updated!')).catch(err => res.status(400).json(`Error : ${err}`));
 		})
 		.catch(err => res.status(400).json(`Error: ${err}`));
